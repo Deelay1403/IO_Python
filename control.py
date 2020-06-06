@@ -40,6 +40,12 @@ def control():
     else:
         session['key'] = "0" # setting session data
         return redirect('/signin')
+    
+    # OffertList
+    (result,names) = db.getOffertNamesByUsername(session['username'])
+    offerList = ""
+    for i in range(len(result)):
+        offerList += F"<a class='offert-link' href='/offer/{result[i][0]}'> <li class='offert'>{result[i][1]}</li></a>\n"
     questionnaireFilled = db.checkQuest(session['username'])
     quest = QuestionnaireForm()
     password = Password()
@@ -68,7 +74,8 @@ def control():
         else:
             error = "Wrong old password"
 
-    return render_template('control.html', 
+    return render_template('control.html',
+    offerList = offerList,
     questionnaireFilled = questionnaireFilled, 
     questionnaire=quest,
     password = password,

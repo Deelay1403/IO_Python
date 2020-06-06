@@ -64,6 +64,16 @@
 			{% for error in offer.name.errors %}
 			<span style="color: red;">[{{ error }}]</span>
 			{% endfor %}
+			<label for="login">Model</label><br>
+			{{ offer.model(size=32) }}</input><br>
+			{% for error in offer.model.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			<label for="login">Producent</label><br>
+			{{ offer.make(size=32) }}</input><br>
+			{% for error in offer.make.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
 			<label for="login">Cena</label><br>
 			{{ offer.price(size=32) }}</input><br>
 			{% for error in offer.price.errors %}

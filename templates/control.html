@@ -20,6 +20,9 @@
 	</button>
 	{% endif %}
 	{% if logged %}
+	<button id="logout" onclick="window.location.href='/makeoffert'">
+		Dodaj ogloszenie
+	</button>
 	<button id="register" onclick="window.location.href='/control'">
 		Panel
 	</button>
@@ -35,6 +38,7 @@
 			<p><a href="/signin">Logowanie</a></p>
 			{% endif %}
 			{% if logged %}
+			<p><a href="/makeoffert">Dodaj ogloszenie</a></p>
 			<p><a href="/control">Panel</a></p>
 			<p><a href="/logout">Wyloguj</a></p>
 			{% endif %}
@@ -49,10 +53,10 @@
 
 <div id="panel-wrapper">
 	<div id="panel">
+		
 		<ul id="my-offerts">
-			<a class="offert-link" href=""> 
-				<li class="offert">xddxXXXXXXXdd</li>
-			</a>
+			<h2>Offer list:</h2>
+			{{ offerList|safe }}
 		</ul>
 		<div id="control-wrapper">
 			<div id="is-filled"> Ankieta: {{ questionnaireFilled }}</div>

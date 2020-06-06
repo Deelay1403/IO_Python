@@ -63,4 +63,3 @@ if __name__ == "__main__":
     gui.app.register_blueprint(con)
     gui.app.register_blueprint(offer)
     gui.run()
-    
