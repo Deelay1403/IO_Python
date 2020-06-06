@@ -1,0 +1,12 @@
+#five{
+	background-image: url("zoe.jpg");
+	background-size:cover;
+		background-position:75% 25%;
+}
+.offert{
+	border:4px;
+	width:23%;
+	height:40%;
+	box-shadow:1px 1px 2px 1px rgba(64, 64, 64, .2);
+	border-radius:4px;
+}

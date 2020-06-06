@@ -1,0 +1,5 @@
+[id="${CSS_id}"]{
+	background-image: url("${CSS_image}");
+	background-size:cover;
+	background-position:75% 25%;
+}
