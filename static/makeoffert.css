@@ -3,6 +3,10 @@
 	margin:0;
 }
 
+button{
+	border:0px;
+	cursor:pointer;
+}
 body {
   background-color:#e6ffe6;
   text-align: center;
@@ -13,9 +17,16 @@ body {
   min-height:100%;
 }
 
-button{
-	border:0px;
-	cursor:pointer;
+
+
+#menu{
+	background-color:white;
+	width:100%;
+	height:60px;
+	border-bottom: 1px solid rgba(64, 64, 64, .3);
+	float:right;
+	margin:0 auto;
+	position:relative;
 }
 
 #logo{
@@ -32,19 +43,10 @@ button{
 	margin:auto 0;
 }
 
-#menu{
-	background-color:white;
-	width:100%;
-	height:60px;
-	border-bottom: 1px solid rgba(64, 64, 64, .3);
-	margin:0 auto;
-	position:relative;
-}
-
 #login{
 	background-color:#e6ffe6;
 	width:140px;
-	height:40px;
+	height:60%;
 	border-radius:4px;
 	display:flex;
 	justify-content:center;
@@ -56,25 +58,10 @@ button{
 	font-weight:bold;
 	margin-left:10px;
 }
-#logout{
-	background-color:#e6ffe6;
-	width:140px;
-	height:40px;
-	border-radius:4px;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	margin:10px 10px 0 0;
-	color:rgba(64, 64, 64, .8);
-	font-size:16px;
-	float:right;
-	font-weight:bold;
-	margin-left:10px;
-}
 
 #register{
 	width:140px;
-	height:40px;
+	height:60%;
 	border-radius:4px;
 	display:flex;
 	float:right;
@@ -88,7 +75,7 @@ button{
 
 #dropdown-menu{
 	width:140px;
-	height:40px;
+	height:60%;
 	border-radius:4px;
 	display:flex;
 	float:right;
@@ -101,116 +88,7 @@ button{
 	margin-right:30px;
 }
 
-body, html{
-	height:100%;
-}
 
-#promo-wrapper{
-	width:100%;
-	height:100%;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-}
-
-#promo{
-	width:90%;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	margin:auto;
-	display:flex;
-	flex-wrap: wrap;
-	justify-content:space-evenly;
-	align-content:space-evenly;
-}
-
-
-.offert{
-	border:4px;
-	width:400px;
-	height:300px;
-	box-shadow:1px 1px 2px 1px rgba(64, 64, 64, .2);
-	border-radius:4px;
-	margin:10px;
-}
-
-
-.header{
-	width:100%;
-	border-top-left-radius:4px;
-	border-top-right-radius:4px;
-	height:40px;
-	background-color:white;
-	color:rgba(64, 64, 64, .8);
-	font-size:32px;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-}
-
-#one{
-	background-image: url("pobrane.jpg");
-	background-size:cover;
-		background-position:75% 25%;
-}
-
-#two{
-	background-image: url("leaf.jpg");
-	background-size:cover;
-		background-position:50% 25%;
-}
-
-#three{
-	background-image: url("i3.jpg");
-	background-size:cover;
-}
-
-#four{
-	background-image: url("teslax.jpg");
-	background-size:cover;
-}
-
-#five{
-	background-image: url("zoe.jpg");
-	background-size:cover;
-		background-position:75% 25%;
-}
-
-#six{
-	background-image: url("jaguar.jpg");
-	background-size:cover;
-	background-position:90% 25%;
-}
-
-#seven{
-	background-image: url("ffi.jpg");
-	background-size:cover;
-	background-position:75% 25%;
-
-}
-
-#eight{
-	background-image: url("opel.jpg");
-	background-size:cover;
-	background-position:0% 75%;
-
-}
-
-#browser{
-	position:absolute;
-	left:0;
-	right:0;
-	top:0;
-	bottom:0;
-	margin:auto;
-	width:500px;
-	height:60%;
-	border:1px solid rgba(64, 64, 64, .3);
-	text-align:center;
-	color:gray;
-}
 
 .dropdown-content {
   display: none;
@@ -253,11 +131,85 @@ body, html{
 	text-decoration:none;
 }
 
+
+
+
+
+.header{
+	width:100%;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	height:40px;
+	background-color:white;
+	color:rgba(64, 64, 64, .8);
+	font-size:32px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+#browser{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
+	width:500px;
+	height:60%;
+	border:1px solid rgba(64, 64, 64, .3);
+	text-align:center;
+	color:gray;
+}
+
+#makeoffert-wrapper{
+	width:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex: 1 1 auto;
+}
+
+body, html{
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+
+#makeoffert{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	background-color:white;
+	padding:25px;
+	color:black;
+}
+
+
+h2{
+	margin-bottom:50px;
+}
+
+input, #type{
+	margin-top:5px;
+	margin-bottom:25px;
+}
+
+#description{
+	resize: none;
+}
+
+#subm{
+	padding:5px;
+}
+
+
+
+
 @media (max-width: 1900px) {
-	.offert{
-		width:550px;
-		margin:25px;
-	}
+
 }
 
 @media (max-width: 1335px) {
@@ -284,10 +236,6 @@ body, html{
 		display:none;
 	}
 	
-	.offert{
-		width:300px;
-		height:225px;
-	}
   
 	#register{
 		display:none;
@@ -301,6 +249,24 @@ body, html{
 		display:block;
 	}
 }
+
+@media (max-width: 530px) {
+	textarea {
+		height: 10em;
+		width: 10em;
+	}
+	
+	input, #type{
+		margin-bottom:5px;
+	}
+	
+	h2{
+		margin-bottom:15px;
+	}
+}
+
+
+
 
 @media (max-width: 400px) {
   #browser{

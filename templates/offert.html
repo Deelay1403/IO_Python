@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Page Title</title>
-<link href="../static/offert.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../static/offert.css">
 </head>
 <body>
-
 <div id="menu">
-	<div id="login">
+	<div id="logo" onclick="location.href='/';" style="cursor: pointer;">
+		
+	</div>
+	{% if not logged %}
+	<button id="login" onclick="window.location.href='/signin'">
 		Zaloguj
-	</div>
-	
-	<div id="register">
+	</button>
+	<button id="register" onclick="window.location.href='/signup'">
 		Zarejestruj
+	</button>
+	{% endif %}
+	{% if logged %}
+	<button id="register" onclick="window.location.href='/control'">
+		Panel
+	</button>
+	<button id="logout" onclick="window.location.href='/logout'">
+		Wyloguj
+	</button>
+	{% endif %}
+	<div id="dropdown-menu">
+		<p>Menu</p>
+		<div class="dropdown-content">
+			{% if not logged %}
+			<p><a href="/signup">Rejestracja</a></p>
+			<p><a href="/signin">Logowanie</a></p>
+			{% endif %}
+			{% if logged %}
+			<p><a href="/control">Panel</a></p>
+			<p><a href="/logout">Wyloguj</a></p>
+			{% endif %}
+	  </div>
 	</div>
 	
-	<div id="browser">
-		Wyszukaj
-	</div>
-	
+	<form>
+		<input type="text" id="browser" name="wyszukaj" placeholder="Wyszukaj">
+	</form>
 </div>
 
-<div id="offert">
-	<div id="image-wrapper"> 
-		<div id="image"></div>
-	</div>
-	<div id="description"> 
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu interdum ante, non posuere turpis.
-		Vivamus quis arcu eu libero molestie dapibus. Etiam non suscipit odio. Integer justo elit, vestibulum at ultrices ut, interdum vel quam. 
-		Mauris pellentesque sem et enim sodales, vel ultrices mi laoreet. Nullam tincidunt eget nulla sodales iaculis.
-		Fusce sollicitudin mattis sapien, efficitur tempor lectus venenatis vel.
+<div id="offert-wrapper">
+	<div id="offert">
+		<div id="image" style="background-image: url('${Offert_img}');"></div>
+		<div id="description"> 
+			<h2>${Offert_title}</h2><br>
+			<p>${Offert_desc}</p><br>
+			<p>Price: <b>${Offert_price}zl</b></p><br>
+			<p>User: <b>${Offert_owner}</b></p>
+			</div>
 	</div>
 </div>
-
 
 </body>
 </html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" type="text/css" href="../static/control.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div id="menu">
+	<div id="logo" onclick="location.href='/';" style="cursor: pointer;">
+		
+	</div>
+	{% if not logged %}
+	<button id="login" onclick="window.location.href='/signin'">
+		Zaloguj
+	</button>
+	<button id="register" onclick="window.location.href='/signup'">
+		Zarejestruj
+	</button>
+	{% endif %}
+	{% if logged %}
+	<button id="register" onclick="window.location.href='/control'">
+		Panel
+	</button>
+	<button id="logout" onclick="window.location.href='/logout'">
+		Wyloguj
+	</button>
+	{% endif %}
+	<div id="dropdown-menu">
+		<p>Menu</p>
+		<div class="dropdown-content">
+			{% if not logged %}
+			<p><a href="/signup">Rejestracja</a></p>
+			<p><a href="/signin">Logowanie</a></p>
+			{% endif %}
+			{% if logged %}
+			<p><a href="/control">Panel</a></p>
+			<p><a href="/logout">Wyloguj</a></p>
+			{% endif %}
+	  </div>
+	</div>
+	
+	<form>
+		<input type="text" id="browser" name="wyszukaj" placeholder="Wyszukaj">
+	</form>
+	
+</div>
+
+<div id="panel-wrapper">
+	<div id="panel">
+		<ul id="my-offerts">
+			<a class="offert-link" href=""> 
+				<li class="offert">xddxXXXXXXXdd</li>
+			</a>
+		</ul>
+		<div id="control-wrapper">
+			<div id="is-filled"> Ankieta: {{ questionnaireFilled }}</div>
+			<div id="questionnaire">
+				{% block content %}
+				<form action="" method="post" novalidate>
+					{{ questionnaire.hidden_tag() }}
+						{{ questionnaire.made(size=32, placeholder="Producent",class="break", id="year") }}
+						
+						{% for error in questionnaire.made.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					<label for="year">Rocznik</label>
+					<div  class="break" id="year">
+
+						{{ questionnaire.year_min(size=32, placeholder="Min", id="Year-min") }}
+						- {{ questionnaire.year_max(size=32, placeholder="Max", id="Year-max") }}
+						
+						{% for error in questionnaire.year_min.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+						{% for error in questionnaire.year_max.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</div>
+					<label for="price">Cena</label>
+					<div  class="break" id="year">
+						{{ questionnaire.price_min(size=32, placeholder="Min", id="Price-min") }}
+						- {{ questionnaire.price_max(size=32, placeholder="Max", id="Price-max") }}
+						
+						{% for error in questionnaire.price_min.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+						{% for error in questionnaire.price_max.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</div>
+					
+
+				{{ questionnaire.submit(id="subm-questionnaire", class="break") }}
+				</form>
+			</div>
+			<div id="deletequestionnaire">
+				<form action="" method="post" novalidate>
+					{{ deletequest.cancerQuest(id="subm-questionnaire", class="break") }}
+				</form>
+			</div>
+			<div id="pass-change">
+				
+				<form action="" method="post" novalidate>
+					{{ password.hidden_tag() }}
+					<label class="fix-margin" for="rok">Stare haslo</label>
+					<div  class="break" id="year">
+						{{ password.oldPass(size=32, placeholder="Stare hasło", id="old-password") }}
+						{% for error in password.oldPass.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</div>
+					<label for="price">Nowe haslo</label>
+					<div  class="break" id="year">
+						{{ password.newPass(size=32, placeholder="Nowe hasło", id="new-password") }}
+						{% for error in password.newPass.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</div>
+					{{ password.submit(id="subm-pass", class="break") }}
+				</form>
+				{% if error %}
+					<span style="color: red;font-size: xx-large;">[{{ error }}]</span>
+				{% endif %}
+				{% if info %}
+					<span style="color: green;font-size: xx-large;">[{{ info }}]</span>
+				{% endif %}
+				{% endblock %}
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

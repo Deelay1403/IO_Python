@@ -2,13 +2,7 @@
 <html>
 <head>
 <title>Page Title</title>
-<style>
-	${car_id_css}
-</style>
-<link href="../static/container.css" rel="stylesheet">
-<link href="../static/index.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" type="text/css" href="../static/signup.css">
 </head>
 <body>
 
@@ -25,9 +19,6 @@
 	</button>
 	{% endif %}
 	{% if logged %}
-	<button id="logout" onclick="window.location.href='/makeoffert'">
-		Dodaj ogloszenie
-	</button>
 	<button id="register" onclick="window.location.href='/control'">
 		Panel
 	</button>
@@ -43,7 +34,6 @@
 			<p><a href="/signin">Logowanie</a></p>
 			{% endif %}
 			{% if logged %}
-			<p><a href="/makeoffert">Dodaj ogloszenie</a></p>
 			<p><a href="/control">Panel</a></p>
 			<p><a href="/logout">Wyloguj</a></p>
 			{% endif %}
@@ -56,10 +46,46 @@
 	
 </div>
 
-<div id="promo-wrapper">
-	<div id="promo">
-	${container}
+<div id="signup-wrapper">
+	<div id="signup">
+		<h2>Rejestracja</h2>
+		{% block content %}
+
+		<form action="" method="post" novalidate>
+			{{ form.hidden_tag() }}
+			<p>
+				{{ form.username.label }}<br>
+				{{ form.username(size=32) }}<br>
+				{% for error in form.username.errors %}
+				<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.password.label }}<br>
+				{{ form.password(size=32) }}<br>
+				{% for error in form.password.errors %}
+				<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.email.label }}<br>
+				{{ form.email(size=32) }}<br>
+				{% for error in form.email.errors %}
+				<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			{% if error %}
+				<span style="color: red;font-size: xx-large;">[{{ error }}]</span>
+			{% endif %}
+
+			<p>{{ form.submit() }}</p>
+		</form>
+
+		{% endblock %}
+		
 	</div>
+
+	
 </div>
 
 

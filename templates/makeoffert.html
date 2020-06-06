@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" type="text/css" href="../static/makeoffert.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+<div id="menu">
+	<div id="logo" onclick="location.href='/';" style="cursor: pointer;">
+		
+	</div>
+	{% if not logged %}
+	<button id="login" onclick="window.location.href='/signin'">
+		Zaloguj
+	</button>
+	<button id="register" onclick="window.location.href='/signup'">
+		Zarejestruj
+	</button>
+	{% endif %}
+	{% if logged %}
+	<button id="logout" onclick="window.location.href='/makeoffert'">
+		Dodaj ogłoszenie
+	</button>
+	<button id="register" onclick="window.location.href='/control'">
+		Panel
+	</button>
+	<button id="logout" onclick="window.location.href='/logout'">
+		Wyloguj
+	</button>
+	{% endif %}
+	<div id="dropdown-menu">
+		<p>Menu</p>
+		<div class="dropdown-content">
+			{% if not logged %}
+			<p><a href="/signup">Rejestracja</a></p>
+			<p><a href="/signin">Logowanie</a></p>
+			{% endif %}
+			{% if logged %}
+			<p><a href="/makeoffert">Dodaj ogłoszenie</a></p>
+			<p><a href="/control">Panel</a></p>
+			<p><a href="/logout">Wyloguj</a></p>
+			{% endif %}
+	  </div>
+	</div>
+	
+	<form>
+		<input type="text" id="browser" name="wyszukaj" placeholder="Wyszukaj">
+	</form>
+	
+</div>
+
+<div id="makeoffert-wrapper">
+	<div id="makeoffert">
+		<h2>Dodaj ofertę</h2>
+		{% block content %}
+		<form action="" method="post" novalidate>
+			{{ offer.hidden_tag() }}
+			<label for="login">Nazwa</label><br>
+			
+			{{ offer.name(size=32) }}<br>
+			{% for error in offer.name.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			<label for="login">Cena</label><br>
+			{{ offer.price(size=32) }}</input><br>
+			{% for error in offer.price.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			<label for="login">Rok</label><br>
+			{{ offer.year(size=32) }}<br>
+			{% for error in offer.year.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			<label for="login">Zdjęcie</label><br>
+			{{ offer.photo(size=32, placeholder="TYLKO URL") }}<br>
+			{% for error in offer.photo.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			
+			<label for="login">Typ</label><br>
+			{{ offer.typ() }}<br>
+			{% for error in offer.typ.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			<br>
+			<label for="login">Opis</label><br>
+			{{ offer.desc(size=32) }}<br>
+			 {% for error in offer.desc.errors %}
+			 <span style="color: red;">[{{ error }}]</span>
+			 {% endfor %}
+
+			{{ offer.submit(id='subm') }}
+			
+		</form>
+		{% endblock %}
+	</div>
+
+	
+</div>
+
+
+</body>
+</html>

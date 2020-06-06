@@ -1,0 +1,378 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+button{
+	border:0px;
+	cursor:pointer;
+}
+body {
+  background-color:#e6ffe6;
+  text-align: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  width:100%;
+  height:100%;
+  min-height:100%;
+}
+
+
+
+#menu{
+	background-color:white;
+	width:100%;
+	height:60px;
+	border-bottom: 1px solid rgba(64, 64, 64, .3);
+	float:right;
+	margin:0 auto;
+	position:relative;
+}
+
+#logo{
+	background-image: url("logo.png");
+	width:55px;
+	height:55px;
+	position:absolute;
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
+	top:0;
+	bottom:0;
+	left:50px;
+	margin:auto 0;
+}
+
+#login{
+	background-color:#e6ffe6;
+	width:140px;
+	height:60%;
+	border-radius:4px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin:10px 30px 0 0;
+	color:rgba(64, 64, 64, .8);
+	font-size:16px;
+	float:right;
+	font-weight:bold;
+	margin-left:10px;
+}
+
+#register{
+	width:140px;
+	height:40px;
+	border-radius:4px;
+	display:flex;
+	float:right;
+	justify-content:center;
+	align-items:center;
+	margin:10px 0px 0 0;
+	color:rgba(64, 64, 64, .8);
+	font-size:16px;
+	text-decoration:underline;
+}
+
+#dropdown-menu{
+	width:140px;
+	height:60%;
+	border-radius:4px;
+	display:flex;
+	float:right;
+	justify-content:center;
+	align-items:center;
+	margin:10px 0px 0 0;
+	color:rgba(64, 64, 64, .8);
+	font-size:16px;
+	display:none;
+	margin-right:30px;
+}
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+	border-radius:10px;
+}
+
+.dropdown-content > p{
+	padding:5px;
+	margin-bottom:5px;
+	border-bottom:2px solid #e6ffe6;
+}
+
+.dropdown-content > p > a{
+	color:black;
+	text-decoration:none;
+}
+
+
+#dropdown-menu:hover .dropdown-content {
+  display: block;
+}
+
+
+
+#dropdown-menu{
+	background-color:#e6ffe6;
+}
+
+#dropdown-menu > p{
+	width:100%;
+	height:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	text-decoration:none;
+}
+
+
+
+
+.header{
+	width:100%;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	height:40px;
+	background-color:white;
+	color:rgba(64, 64, 64, .8);
+	font-size:32px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+#browser{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
+	width:500px;
+	height:60%;
+	border:1px solid rgba(64, 64, 64, .3);
+	text-align:center;
+	color:gray;
+}
+
+#panel-wrapper{
+	width:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex: 1 1 auto;
+}
+
+body, html{
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+
+#panel{
+	width:90%;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content:space-evenly;
+	align-content:space-evenly;
+	background-color:white;
+	padding:25px;
+}
+
+
+
+#my-offerts{
+	float:left;
+	width:40%;
+	height:100%;
+	color:black;
+	list-style-type: none;
+	box-sizing:border-box;
+	padding:15px 0px;
+}
+
+.offert-link{
+	text-decoration:none;
+}
+
+.offert{
+	margin-top:10px;
+	
+}
+
+#control-wrapper{
+	float:right;
+	width:585px;
+	height:100%;
+	padding:15px;
+	box-sizing:border-box;
+	color:black;
+}
+
+#is-filled{
+	width:100%;
+	height:10%;
+	box-sizing:border-box;
+	border-bottom:1px solid rgba(64, 64, 64, .3);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+		padding:25px;
+}
+
+form{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-wrap: wrap;
+	width:200px;
+}
+
+input{
+	width:50px;	
+	margin-top:10px;
+	text-align:center;
+}
+
+label{
+	margin-top:25px;
+}
+
+.fix-margin{
+	margin-top:0px;
+}
+
+.break{
+	flex-basis: 100%;
+}
+
+#subm-questionnaire, #subm-pass{
+	margin-top:35px;
+	width:100%;	
+}
+#logout{
+	background-color:#e6ffe6;
+	width:140px;
+	height:40px;
+	border-radius:4px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin:10px 30px 0 0;
+	color:rgba(64, 64, 64, .8);
+	font-size:16px;
+	float:right;
+	font-weight:bold;
+	margin-left:10px;
+}
+#questionnaire{
+	width:100%;
+	height:55%;
+	box-sizing:border-box;
+	border-bottom:1px solid rgba(64, 64, 64, .3);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:25px;
+}
+#deletequestionnaire{
+	width:100%;
+	height:55%;
+	box-sizing:border-box;
+	border-bottom:1px solid rgba(64, 64, 64, .3);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:25px;
+	margin: 0;
+}
+
+#pass-change{
+	width:100%;
+	height:35%;
+	box-sizing:border-box;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+		padding:25px;
+}
+
+#old-password{
+	width:250px;
+}
+
+#new-password{
+	width:250px;
+}
+
+
+
+
+@media (max-width: 1900px) {
+
+}
+
+@media (max-width: 1335px) {
+  #browser{
+	  width:300px;
+  }
+}
+
+@media (max-width: 1070px) {
+  #browser{
+	  right:160px;
+  }
+}
+
+@media (max-width: 880px) {
+  #browser{
+	  width:200px;
+	  right:170px;
+  }
+}
+
+@media (max-width: 700px) {
+	#logo{
+		display:none;
+	}
+	
+  
+	#register{
+		display:none;
+	}
+  
+	#login{
+		display:none;
+	}
+  
+	#dropdown-menu{
+		display:block;
+	}
+}
+
+@media (max-width: 400px) {
+  #browser{
+	  width:100px;
+	  right:170px;
+  }
+  
+  #menu{
+	  height:45px;
+  }
+  
+  #dropdown-menu{
+	  width:100px;
+	  height:60%;
+  }
+}
