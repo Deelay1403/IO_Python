@@ -27,7 +27,7 @@ class Database:
             "SelectOffertID":F"SELECT `Offert_ID` FROM `Offert` WHERE `Title` = '%s' AND `User_Login` = '%s'",
             "AddOffertDet":F"INSERT INTO `Offert_Detail` (`Offert_ID`,`Description`,`Thumbnail`) VALUES (%s,'%s','%s');",
             "OffertListByUser":F"SELECT `Offert_ID`,`Title` FROM `Offert` WHERE `User_Login` = '%s';",
-            }
+        }
 
         self.mydb = mysql.connector.connect(
         host=config.host,

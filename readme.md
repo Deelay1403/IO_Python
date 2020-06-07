@@ -1,4 +1,7 @@
-To run site type:
+To install neccesarry libs:
+pip install -r requirements.txt
+
+To run dev server of site type:
 python strona.py
 
-If python ask for additional libs, install it with pip intall <name of lib>
+Then go to: 127.0.0.1:5000 in browser
