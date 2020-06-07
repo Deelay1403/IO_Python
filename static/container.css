@@ -4,4 +4,9 @@
 	height:40%;
 	box-shadow:1px 1px 2px 1px rgba(64, 64, 64, .2);
 	border-radius:4px;
+	text-decoration:none;
+}
+
+a{
+	text-decoration:none;
 }

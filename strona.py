@@ -30,7 +30,17 @@ def main():
         session['key'] = "0" # setting session data
     
     # db.addCar("A4","Audi","Elektryczny")
-    offers,columns = db.getOffers_index()
+    columns = []
+    offers = []
+    if(session['username'] != None):
+        offers,columns = db.GetOffertsByQuest(session['username'])
+        if(offers != 0):
+            pass
+        else:
+            offers,columns = db.getOffers_index()
+    else:
+        offers,columns = db.getOffers_index()
+    # print(offers)
     f = open("./templates/index.html", "r")
     index = Template(f.read())
 

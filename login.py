@@ -52,4 +52,5 @@ def signin():
 @log.route('/logout')
 def logout():
     session['key'] = "0"
+    session['username'] = None
     return redirect('/')

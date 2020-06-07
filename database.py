@@ -27,6 +27,8 @@ class Database:
             "SelectOffertID":F"SELECT `Offert_ID` FROM `Offert` WHERE `Title` = '%s' AND `User_Login` = '%s'",
             "AddOffertDet":F"INSERT INTO `Offert_Detail` (`Offert_ID`,`Description`,`Thumbnail`) VALUES (%s,'%s','%s');",
             "OffertListByUser":F"SELECT `Offert_ID`,`Title` FROM `Offert` WHERE `User_Login` = '%s';",
+            "GetOffertsByQuest":F"SELECT Offert.`Offert_ID`,`Title`, Offert_Detail.Thumbnail FROM `Offert` LEFT JOIN Offert_Detail ON Offert.`Offert_ID` = Offert_Detail.Offert_ID LEFT JOIN Car ON `Offert`.`Car_id` = Car.`Car_id` WHERE Offert.`Price` BETWEEN %s AND %s AND Car.Year BETWEEN %s AND %s AND Car.Make = '%s'",
+            "GetQuest":F"SELECT * FROM `Questionnaire` WHERE `User_Login` = '%s' ",
         }
 
         self.mydb = mysql.connector.connect(
@@ -194,4 +196,32 @@ class Database:
             offerTemplate.photo
         ))
         return 0
-        
+    def GetOffertsByQuest(self,username):
+        q = self.__query['QuestCheckUser']%(username)
+        self._cursor_querry(q)
+        state = bool(self.mycursor.fetchall()[0][0])
+        if(state):
+            self._cursor_querry(self.__query['GetQuest']%(username))
+            result = []
+            names = []
+            for x in self.mycursor:
+                result.append(x)
+            for x in self.mycursor._description:
+                names.append(x[0])
+            
+            self._cursor_querry(self.__query['GetOffertsByQuest']%(
+                result[0][4],
+                result[0][5],
+                result[0][2],
+                result[0][3],
+                result[0][1]))
+            result = []
+            names = []
+            for x in self.mycursor:
+                result.append(x)
+            for x in self.mycursor._description:
+                names.append(x[0])
+            print(result)
+            return result,names
+
+        return 0,0
